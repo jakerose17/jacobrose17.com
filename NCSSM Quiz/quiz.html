@@ -1,0 +1,163 @@
+    <!--
+    Question Template:
+  <div class="question" id="q1">
+      <h2></h2>
+      <div  class="answer" id="q.a0"><p><input type="radio" name="ans." value="0">Answer 1</p></div>
+      <div  class="answer" id="q.a1"><p><input type="radio" name="ans." value="0">Answer 2</p></div>
+      <div  class="answer" id="q.a2"><p><input type="radio" name="ans." value="0">Answer 3</p></div>
+      <div  class="answer" id="q.a3"><p><input type="radio" name="ans." value="0">Answer 4</p></div>
+      <div  class="answer" id="q.a4"><p><input type="radio" name="ans." value="0">Answer 4</p></div>
+      <div  class="answer" id="q.a5"><p><input type="radio" name="ans." value="0">Answer 4</p></div>
+  </div>
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Which NCSSM Dorm Hall Should You Be In?</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="images/ncssm_logo.png" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1>NCSSM Hall Quiz</h1>
+      <div class="floatingImg" id="navImg">
+        <a href="https://ncssm.edu"><img src="images/ncssm.png" alt="NCSSM Logo"></a>
+      </div>
+      <div class="floatingNav" id="navbar">
+        <a href="index.html"><div class="pagelink"><p>Home</p></div></a>
+        <a href="about.html"><div class="pagelink"><p>About</p></div></a>
+        <a href="https://www.ncssm.edu/residential-program/student-life/housing-and-dining"><div class="pagelink"><p>NCSSM Housing</p></div></a>
+      </div>
+    </header>
+<!-- Q0 -->
+    <div id="q0" class="question">
+      <h2>What computer operating system do you use?</h2>
+      <div  class="answer" id="q0a0"><p><input type="radio" name="ans0" id="q0a0rad" value="0">MacOS</p></div>
+      <div  class="answer" id="q0a1"><p><input type="radio" name="ans0" id="q0a1rad" value="0">Windows</p></div>
+      <div  class="answer" id="q0a2"><p><input type="radio" name="ans0" id="q0a2rad" value="0">Linux</p></div>
+    </div>
+<!-- Q1 -->
+    <div id="q1" class="question">
+      <h2>Do you like to stay in your room a lot?</h2>
+      <div  class="answer" id="q1a0"><p><input type="radio" name="ans1" id="q1a0rad" value="0">Yes- I'm a hermit</p><img src="https://i.pinimg.com/564x/bf/b8/2b/bfb82be7eb4ed2441b6b8da3f3e84d3f.jpg" alt="Dorm room"></div>
+      <div  class="answer" id="q1a1"><p><input type="radio" name="ans1" id="q1a1rad" value="0">No- I'm social</p><img src="https://t3.ftcdn.net/jpg/01/82/04/48/360_F_182044876_06HeflLiNKG5cGg9XxKWjHndF8PWyfJo.jpg" alt="Teens socializing"></div>
+      <div  class="answer" id="q1a2"><p><input type="radio" name="ans1" id="q1a2rad" value="0">Half and half</p></div>
+    </div>
+<!-- Q2 -->
+    <div class="question" id="q2">
+      <h2>What temperature do you like your showers at?</h2>
+      <div  class="answer" id="q2a0"><p><input type="radio" name="ans2" id="q2a0rad" value="0">Lukewarm</p></div>
+      <div  class="answer" id="q2a1"><p><input type="radio" name="ans2" id="q2a1rad" value="0">Cold</p></div>
+      <div  class="answer" id="q2a2"><p><input type="radio" name="ans2" id="q2a2rad" value="0">Hot</p></div>
+      <div  class="answer" id="q2a3"><p><input type="radio" name="ans2" id="q2a3rad" value="0">Surprise me! (Cue gasps from the audience)</p></div>
+    </div>
+<!-- Q3 -->
+  <div class="question" id="q3">
+    <h2>What beverage would you take at the PFM?</h2>
+    <div  class="answer" id="q3a0"><p><input type="radio" name="ans3" id="q3a0rad" value="0">Water</p><img src="https://images.pexels.com/photos/1426718/pexels-photo-1426718.jpeg?cs=srgb&dl=pexels-julie-aagaard-1426718.jpg&fm=jpg" alt="Water"></div>
+    <div  class="answer" id="q3a1"><p><input type="radio" name="ans3" id="q3a1rad" value="0">Ice Tea</p><img src="https://realfood.tesco.com/media/images/RFO-1400x919-IcedTea-8e156836-69f4-4433-8bae-c42e174212c1-0-1400x919.jpg" alt="Ice Tea"></div>
+    <div  class="answer" id="q3a2"><p><input type="radio" name="ans3" id="q3a2rad" value="0">Milk</p><img src="https://post.healthline.com/wp-content/uploads/2019/11/milk-soy-hemp-almond-non-dairy-1200x628-facebook.jpg" alt="Milk"></div>
+    <div  class="answer" id="q3a3"><p><input type="radio" name="ans3" id="q3a3rad" value="0">Juice</p><img src="https://www.foodbusinessnews.net/ext/resources/2019/5/FruitJuices_Lead.jpg?1558529580" alt="Juice"></div>
+  </div>
+<!-- Q4 -->
+  <div class="question" id="q4">
+    <h2>Would you fit into Greek Life? (Sororities, fraternities, etc.)</h2>
+    <div  class="answer" id="q4a0"><p><input type="radio" name="ans4" id="q4a0rad" value="0">Yes!</p></div>
+    <div  class="answer" id="q4a1"><p><input type="radio" name="ans4" id="q4a1rad" value="0">No!</p></div>
+  </div>
+<!-- Q5-->
+  <div class="question" id="q5">
+    <h2>Favorite season?</h2>
+    <div  class="answer" id="q5a0"><p><input type="radio" name="ans5" id="q5a0rad" value="0">Summer</p><img src="https://careersforimpact.com/wp-content/uploads/2016/06/summer-01.jpg" alt="Summer beach"></div>
+    <div  class="answer" id="q5a1"><p><input type="radio" name="ans5" id="q5a1rad" value="0">Winter</p><img src="https://www.almanac.com/sites/default/files/image_nodes/winter_sunrise-2.jpg" alt="Snowy Day"></div>
+    <div  class="answer" id="q5a2"><p><input type="radio" name="ans5" id="q5a2rad" value="0">Spring</p><img src="https://i.guim.co.uk/img/media/d5b563bef60c06a22dc65a18c391f63ff42549e6/0_205_4288_2573/master/4288.jpg?width=1200&quality=85&auto=format&fit=max&s=f69dafe4bb0bc828c5e07298240f1d3a" alt="Spring"></div>
+    <div  class="answer" id="q5a3"><p><input type="radio" name="ans5" id="q5a3rad" value="0">Fall</p><img src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1600,w_2378,x_11,y_0/v1569260079/shape/mentalfloss/gettyimages-1053614486_1.jpg?itok=r2LUV-RS" alt="Fall leaves"></div>
+  </div>
+  <!-- Q6 -->
+  <div class="question" id="q6">
+    <h2>What super power would you choose?</h2>
+    <div  class="answer" id="q6a0"><p><input type="radio" name="ans6" id="q6a0rad" value="0">Mind Reading</p></div>
+    <div  class="answer" id="q6a1"><p><input type="radio" name="ans6" id="q6a1rad" value="0">Teleportation</p></div>
+    <div  class="answer" id="q6a2"><p><input type="radio" name="ans6" id="q6a2rad" value="0">Invisibility</p></div>
+    <div  class="answer" id="q6a3"><p><input type="radio" name="ans6" id="q6a3rad" value="0">Super Speed</p></div>
+  </div>
+  <!-- Q7 -->
+  <div class="question" id="q7">
+    <h2>Are you a member of the LGBTQ+ community?</h2>
+    <div  class="answer" id="q7a0"><p><input type="radio" name="ans7" id="q7a0rad" value="0">Yes</p></div>
+    <div  class="answer" id="q7a1"><p><input type="radio" name="ans7" id="q7a1rad" value="0">No</p></div>
+    <div  class="answer" id="q7a2"><p><input type="radio" name="ans7" id="q7a2rad" value="0">Questioning</p></div>
+  </div>
+  <!-- Q8 add img -->
+  <div class="question" id="q8">
+    <h2>Pick a color.</h2>
+    <div  class="answer" id="q8a0"><p><input type="radio" name="ans8" id="q8a0rad" value="0">Red</p><img src="https://fsb.zobj.net/crop.php?r=eOyu9MEGCGX96J592xghZvT0ElNFuVXCN-eJfQI8ZdcYvty2fNJsue3l2QPvqrG7Qgs05ujHiZVpffd_N0sk-RFXWPo0BbaM2y6SoYS6ft2Sas4cG7podRRTIV94MYEwb7KRWhqs7M4rhgeT" alt="Red collage"></div>
+    <div  class="answer" id="q8a1"><p><input type="radio" name="ans8" id="q8a1rad" value="0">Orange</p><img src="https://wallpaperaccess.com/full/2295597.jpg" alt="Orange collage"></div>
+    <div  class="answer" id="q8a2"><p><input type="radio" name="ans8" id="q8a2rad" value="0">Yellow</p><img src="https://wallpapercave.com/wp/wp4057394.jpg" alt="Yellow collage"></div>
+    <div  class="answer" id="q8a3"><p><input type="radio" name="ans8" id="q8a3rad" value="0">Green</p><img src="https://fsa.zobj.net/crop.php?r=7HmXyVKfuh2xvuEIEIG3mSrQiPIsFaPpQqHYuEK0q3n1yDPEpfVKgctoh2Ot4PKDo4tSfevVMvb7M1O2IqAtZrb71ZjKQocqaDELFRDdwtoIcf0xBXzv4CVSaXcfQXYMnFFVP49WcKEz-uFf" alt="Green collage"></div>
+    <div  class="answer" id="q8a4"><p><input type="radio" name="ans8" id="q8a4rad" value="0">Blue</p><img src="https://wallpapercave.com/wp/wp5008240.jpg" alt="Blue collage"></div>
+    <div  class="answer" id="q8a5"><p><input type="radio" name="ans8" id="q8a5rad" value="0">Violet</p><img src="https://wallpaperaccess.com/full/2658712.jpg" alt="Purple collage"></div>
+  </div>
+  <!-- Q9 -->
+  <div class="question" id="q9">
+    <h2>Pick a Marvel Movie.</h2>
+    <div  class="answer" id="q9a0"><p><input type="radio" name="ans9" id="q9a0rad" value="0">Avengers: Infinity War</p></div>
+    <div  class="answer" id="q9a3"><p><input type="radio" name="ans9" id="q9a3rad" value="0">Captain America: Civil War</p></div>
+    <div  class="answer" id="q9a1"><p><input type="radio" name="ans9" id="q9a1rad" value="0">Iron Man 1</p></div>
+    <div  class="answer" id="q9a2"><p><input type="radio" name="ans9" id="q9a2rad" value="0">Black Panther</p></div>
+  </div>
+  <!-- Q10 -->
+  <div class="question" id="q10">
+    <h2>Pick an aesthetic.</h2>
+    <div  class="answer" id="q10a0"><p><input type="radio" name="ans10" id="q10a0rad" value="0">Dark Academia</p><img src="https://dubeat.com/wp-content/uploads/2020/09/Dark-Academia-770x515.png" alt="Dark Academia Aesthetic"></div>
+    <div  class="answer" id="q10a1"><p><input type="radio" name="ans10" id="q10a1rad" value="0">Fairycore</p><img src="https://i.pinimg.com/originals/1f/ea/c2/1feac21d7a8eb3b75bb2ed04dfe65388.jpg" alt="Fairycore Aesthetic"></div>
+    <div  class="answer" id="q10a2"><p><input type="radio" name="ans10" id="q10a2rad" value="0">Vintage</p><img src="https://i.pinimg.com/originals/d7/2a/60/d72a6012bd7c0416f1b68c7128c722fa.jpg" alt="Vintage Aesthetic"></div>
+    <div  class="answer" id="q10a3"><p><input type="radio" name="ans10" id="q10a3rad" value="0">Grunge</p><img src="https://64.media.tumblr.com/d0d38765afcb1300e664256b8a6e2e37/tumblr_pnsgq7Cxtp1u6pg43_640.png" alt="Grunge Aesthetic"></div>
+    <div  class="answer" id="q10a4"><p><input type="radio" name="ans10" id="q10a4rad" value="0">Minimalist</p><img src="https://images.squarespace-cdn.com/content/v1/5e6e5b4d0f525367f090bf95/1600854470087-MO68IUJ05KIFZWE1P6NS/ke17ZwdGBToddI8pDm48kFGj45nRdqApQYeVlCVaKXRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzJChs1rFBkIubN4xsn11VQQe3cuj3wJoZxjnGn7AU6S1Tcqdx3NQZp8bQybJwYQ7Q/minimalray-minimalism-minimalist-aesthetic-style-space.jpg" alt="Minimalist Aesthetic"></div>
+    <div  class="answer" id="q10a5"><p><input type="radio" name="ans10" id="q10a5rad" value="0">Indie</p><img src="http://pm1.narvii.com/7837/c24c5ddffaf1504a3d001de556d4d25f301940ear1-750-769v2_uhq.jpg" alt="Indie Aesthetic"></div>
+  </div>
+  <!-- Q11 -->
+  <div class="question" id="q11">
+    <h2>Favorite dessert?</h2>
+    <div  class="answer" id="q11a0"><p><input type="radio" name="ans11" id="q11a0rad" value="0">Brownies</p></div>
+    <div  class="answer" id="q11a1"><p><input type="radio" name="ans11" id="q11a1rad" value="0">Breads</p></div>
+    <div  class="answer" id="q11a2"><p><input type="radio" name="ans11" id="q11a2rad" value="0">Cakes</p></div>
+    <div  class="answer" id="q11a3"><p><input type="radio" name="ans11" id="q11a3rad" value="0">Cookies</p></div>
+  </div>
+  <!-- Q12 -->
+  <div class="question" id="q12">
+    <h2>Preferred coffee drink?</h2>
+    <div  class="answer" id="q12a0"><p><input type="radio" name="ans12" id="q12a0rad" value="0">Coffee (Black)</p><img src="https://www.thehealthy.com/wp-content/uploads/2020/09/GettyImages-1155869351.jpg" alt="Black coffee"></div>
+    <div  class="answer" id="q12a1"><p><input type="radio" name="ans12" id="q12a1rad" value="0">Coffee (with Creamer and Sugar)</p><img src="https://skinnyms.com/wp-content/uploads/2012/01/Coffee-Creamer.jpg" alt="Coffee"></div>
+    <div  class="answer" id="q12a2"><p><input type="radio" name="ans12" id="q12a2rad" value="0">Frappuccino</p><img src="https://simplyhomecooked.com/wp-content/uploads/2021/02/Starbucks-Caramel-Frappuccino-Copycat-recipe-8.jpg" alt="Frappuccino"></div>
+    <div  class="answer" id="q12a3"><p><input type="radio" name="ans12" id="q12a3rad" value="0">Latte</p><img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/latte-art-in-a-yellow-cup-on-a-marble-table-royalty-free-image-1592427210.jpg" alt="Latte"></div>
+    <div  class="answer" id="q12a4"><p><input type="radio" name="ans12" id="q12a4rad" value="0">Cappuccino</p><img src="https://cdn.leitesculinaria.com/wp-content/uploads/fly-images/233844/cappuccino-1200x1200-c.jpg.optimal.jpg" alt="Cappuccino"></div>
+    <div  class="answer" id="q12a5"><p><input type="radio" name="ans12" id="q12a5rad" value="0">Ew, Coffee</p><img src="https://media.tenor.com/images/9214d36d133ac21097c443fdea5e58eb/tenor.gif" alt="Cappuccino"></div>
+  </div>
+  <!-- Q13 -->
+  <div class="question" id="q13">
+    <h2>What is your favorite mainstream TV show?</h2>
+    <div  class="answer" id="q13a0"><p><input type="radio" name="ans13" id="q13a0rad" value="0">Vampire Diaries</p></div>
+    <div  class="answer" id="q13a1"><p><input type="radio" name="ans13" id="q13a1rad" value="0">The Office</p></div>
+    <div  class="answer" id="q13a2"><p><input type="radio" name="ans13" id="q13a2rad" value="0">Pretty Little Liars</p></div>
+    <div  class="answer" id="q13a3"><p><input type="radio" name="ans13" id="q13a3rad" value="0">Grey's Anatomy</p></div>
+    <div  class="answer" id="q13a4"><p><input type="radio" name="ans13" id="q13a4rad" value="0">Friends</p></div>
+    <div  class="answer" id="q13a5"><p><input type="radio" name="ans13" id="q13a5rad" value="0">The Simpsons</p></div>
+  </div>
+  <!-- Q14 -->
+    <div id="q14" class="question">
+      <h2>Have you ever done something illegal?</h2>
+      <div  class="answer" id="q14a0"><p><input type="radio" name="ans14" id="q14a0rad" value="0">Yes</p></div>
+      <div  class="answer" id="q14a1"><p><input type="radio" name="ans14" id="q14a1rad" value="0">No</p></div>
+      <div  class="answer" id="q14a2"><p><input type="radio" name="ans14" id="q14a2rad" value="0">Maybe</p></div>
+    </div>
+
+  <div class="calculatingResults">
+    <div id="calcResults" class = "calcResults">Calculate the Results</div>
+  </div>
+  </body>
+</html>

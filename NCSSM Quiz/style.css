@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+/* ----------------------------------------------------------------- */
+/*                        Body styling                               */
+/* ----------------------------------------------------------------- */
+body{
+  background-image: repeating-linear-gradient(#A2B0FF, #F69096, #F9B998, #A2B0FF);
+  background-size: cover;
+  margin: 0;
+  text-align: center;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #26395B;
+}
+.indexbody{
+  text-align: left;
+  margin: 20pt;
+}
+
+/* ----------------------------------------------------------------- */
+/*                      Header styling                               */
+/* ----------------------------------------------------------------- */
+
+header{
+  padding: 1em;
+  text-align: left;
+  margin-bottom: 5%;
+}
+.floatingNav{
+  width:50%;
+  margin-right: 0;
+}
+.sticky{
+  position: fixed;
+  top: .5em;
+  width: 98%;
+}
+.floatingImg{
+  float: right;
+}
+header>h1{
+  text-align: left;
+  font-size: min(3vw, 20pt);
+  margin: .3vw;
+  margin-left: .3em;
+  padding: .3vw;
+  display: inline-block;
+}
+.pagelink{
+  display: inline-block;
+  background-color: white;
+  margin-left: min(1vw, .5em);
+  margin-right: min(1vw, .5em);
+  padding: .5vw;
+  font-weight: bolder;
+  border-radius: 5pt;
+  border: solid #A2B0FF 2px;
+}
+.pagelink:hover{
+  border: solid #F69096 2px;
+  transition: linear .2s;
+}
+.pagelink>p{
+  font-size: min(1.5vw, 12pt);
+  margin: 0;
+}
+a>img{
+  border-radius: 8pt;
+  border: solid #A2B0FF 2pt;
+  display: inline-block;
+  margin-right: 1em;
+  height: min(6vw, 60px);
+  float: right;
+}
+a>img:hover{
+  border: solid #F69096 2pt;
+  transition: linear .2s;
+}
+#header{
+  background-color: white;
+}
+/* ------------------------------------------------------------------- */
+/*                      Question Styling                               */
+/* ------------------------------------------------------------------- */
+.question{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: white; */
+  background-image: url('https://i.pinimg.com/originals/a7/f4/51/a7f451158139610d8a7f671cfb00c69c.gif');
+  width: 50%;
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 10pt;
+}
+.answer{
+  display: inline-block;
+  margin: .5vw;
+  border: solid #A2B0FF 2pt;
+  border-radius: 5pt;
+  background-color: white;
+  padding: 0 1vw;
+  width: 40%;
+  font-size: 12pt;
+}
+.answer>img{
+  object-fit: cover;
+  width: 90%;
+  height: 12vw;
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+.answer:hover{
+  border: solid #F69096 2pt;
+  transition: linear .2s;
+}
+.selected{
+  border: solid #F9B998 2pt;
+  background-color: #F9B998;
+}
+p>input{
+  margin-right: 1em;
+}
+div>p{
+  font-size: min(2vw, 12pt);
+}
+h2{
+  font-size: min(16pt, 3.5vw);
+}
+
+/* ------------------------------------------------------------------ */
+/*                      Results Styling                               */
+/* ------------------------------------------------------------------ */
+.calcResults{
+  display: block;
+  margin: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid #A2B0FF 2pt;
+  border-radius: 5pt;
+  background-color: white;
+  padding: 0 1em;
+  width: 40%;
+  font-size: min(2.5vw, 16pt);
+  padding: 1em;
+}
+.calcResults:hover{
+  border: solid #F9B998 2pt;
+  transition: linear .2s;
+}
+
+/* --------------------------------------------------------------------- */
+/*                      Index Page Styling                               */
+/* --------------------------------------------------------------------- */
+.meetdiv{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+.personalpicture{
+  text-align: center;
+  background-color: white;
+  border: solid #A2B0FF 2pt;
+  border-radius: 10pt;
+  display: inline-block;
+  width: min(26vw, 300px);
+  height: 750px;
+  flex-direction: column;
+  /* display: table-cell; */
+  margin: 1vw;
+  padding: 2em;
+  vertical-align: top;
+}
+.personalpicture>img{
+  width: 80%;
+  border-radius: 30pt;
+  margin: 10pt;
+}
+
+/* --------------------------------------------------------------------- */
+/*                      About Page Styling                               */
+/* --------------------------------------------------------------------- */
+ul>li>span{
+  font-weight: bolder;
+  text-decoration: underline;
+}
+ul>li{
+  text-align: left;
+  margin: .5em;
+}
+.aboutDiv{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid white 2pt;
+  border-radius: 5pt;
+  width: 80%;
+}

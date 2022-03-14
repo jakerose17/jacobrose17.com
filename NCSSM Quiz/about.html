@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About the quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="images/ncssm_logo.png"/>
+  </head>
+  <body>
+    <header id="header">
+      <h1>NCSSM Hall Quiz</h1>
+      <div class="floatingImg" id="navImg">
+        <a href="https://ncssm.edu"><img src="images/ncssm.png" alt="NCSSM Logo"></a>
+      </div>
+      <div class="floatingNav" id="navbar">
+        <a href="index.html"><div class="pagelink"><p>Home</p></div></a>
+        <a href="quiz.html"><div class="pagelink"><p>Take the Quiz Now!</p></div></a>
+        <a href="https://www.ncssm.edu/residential-program/student-life/housing-and-dining"><div class="pagelink"><p>NCSSM Housing</p></div></a>
+      </div>
+    </header>
+      <h1>About Our Project!</h1>
+      <h2>Features:</h2>
+        <ul class="aboutDiv">
+          <li class="feature"><span>Styling</span> - We used new features, such as linear transitions and gradients to create an aesthetic, clean look to our pages. In addition, the use of border radius and transitions contribute to a smoother user experience. In order to ensure consistent styling across questions, answers, etc. we used classes and IDs to properly diffentiate everything.</li>
+          <li class="feature"><span>Div</span> - We used the div element with "addEventListener" to get user input in order to output results for which hall the user belongs on.</li>
+          <li class="feature"><span>Images</span>- The efficient use of urls and cropping allowed us to incorporate a substantial amount of images across the website, without having to wrangle with dozens of files.</li>
+        </ul>
+        <ul class="aboutDiv">
+          <li class="feature"><span>addEventListener</span> - We used this to add event handlers to all of the button answer choices rather than button "onclick".</li>
+          <li class="feature"><span>Function</span> - We used functions to compute the points for each hall. </li>
+          <li class="feature"><span>Loops</span> - Extensive use of loops allowed us to make the javascript as compact and efficient as possible. We used loops to make sure the user answered all of the questions and add event handlers.</li>
+          <li class="feature"><span>If/Else statements</span> - We used if/else statements to change our alerts based on the number of halls we need to display to the user and to check to see if all the questions were answered.</li>
+          <li class="feature"><span>SweetAlert</span> - We used swal, an external library that we imported, to create alerts that were aesthetically pleasing. The alert or swal here displayed to the user the hall results from the quiz, as well as a message if all the questions in the quiz were not answered.</li>
+          <li class="feature"><span>Arrays</span> We used arrays to determine which result would display after the user completes the quiz. In the overarching array (answerValues), we assigned each answer choice to a hall, so that when it's clicked, a value will be added to each hall variable. After each question is answered, we compare each value to find the greatest one, and display that in an alert. If there are ties, then multiple halls will be displayed. </li>
+          <li class="feature"><span>Variables</span> - Since we computed which halls the user should be on based on a point system, we used assigned variables to each hall and whichever variables(for their respective hall) had the most points were outputed in the alert for results through the use of a function that included a for loop and if statements.</li>
+        </ul>
+  </body>
+</html>

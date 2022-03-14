@@ -1,0 +1,106 @@
+body {
+  background-color: lightblue;
+  font-style: times;
+  text-align: inherit;
+  margin: 0;
+}
+header, footer{
+  padding: 1em;
+  text-decoration: none;
+  background-color: white;
+  border: solid 1px gray;
+  border-radius: 5pt;
+  padding: 10pt;
+  padding-left: 2em;
+}
+a {
+  font-family: sans-serif;
+  margin: 1em;
+  color: black;
+}
+footer > p {
+  margin: 2pt 3em;
+}
+img{
+  display: block;
+  margin: 0em auto;
+  width: 50%;
+  display: black;
+  border-radius: 20px;
+}
+img:hover{
+  transition: .5s;
+  opacity: .7;
+}
+.headerlabel {
+  border: none;
+}
+.headerlabel > img{
+  display: inline-block;
+  width: 7pc;
+  border: none;
+  vertical-align: middle;
+  margin: none;
+}
+.headerlabel > h1{
+  display: inline;
+  vertical-align: middle;
+  margin: none;
+  font-size: 3vw;
+}
+.sbsimg{
+  width: 100%;
+  margin-bottom: 0pt;
+  margin-right: 0pt;
+}
+.label{
+  text-decoration: underline;
+  text-align: center;
+}
+h2{
+  text-align: center;
+  font-size: min(2.5vw, 30pt);
+}
+h3{
+  text-align: center;
+  text-decoration: underline;
+  padding-left: 1pc;
+  font-size: 2vw;
+}
+ol{
+  text-align: left;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+}
+.printerdiv > img{
+  min-width: 200px;
+  max-width: 100%;
+}
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.placesToEat {
+  background-color: lightgray;
+  padding: 3em 0;
+}
+.eateries{
+  margin-left: 24%;
+  background-color: lightgray;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+.column > h3, .column > a{
+  margin: 0;
+}
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  margin-left: 16.65%;
+}
+.background1{
+  background-color: lightblue;
+  margin: 1em 2em;
+}
