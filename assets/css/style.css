@@ -1168,6 +1168,10 @@ section {
     .wrapper .inner {
         padding: 2em 1.5em 0.1em 1.5em;
     }
+    .wrapper .inner .image {
+        display: inline-block;
+        margin-bottom: 1em;
+    }
 }
 
 a.special:not(.button) {
