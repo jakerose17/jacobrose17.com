@@ -595,6 +595,10 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+.about {
+    padding-bottom: 0;
+}
+
 .about .content h3 {
     font-weight: 700;
     font-size: 26px;
@@ -732,6 +736,10 @@ section {
     #wrapper > header p {
         font-size: 0.8em;
     }
+}
+
+.wrapper {
+    padding: 1.5em !important;
 }
 
 .wrapper {
@@ -1080,25 +1088,25 @@ section {
 
 @media screen and (max-width: 980px) {
     .wrapper {
-        margin: 4.75em 0;
+        margin: 2em 0;
     }
 
     .wrapper:before,
     .wrapper:after {
-        height: 4.75em;
+        height: 2em;
     }
 
     .wrapper:before {
-        top: -4.75em;
+        top: -2em;
     }
 
     .wrapper:after {
-        bottom: -4.75em;
+        bottom: -2em;
         left: 0;
     }
 
     .wrapper .inner {
-        padding: 3em 3em 1em 3em;
+        padding: 0.5em 3em 0.5em 3em;
         width: 100%;
     }
 
