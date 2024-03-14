@@ -1,281 +1,247 @@
-/*
-	Multiverse by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+/**
+* Template Name: Kelly
+* Updated: Mar 10 2023 with Bootstrap v5.2.3
+* Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
 */
-
-(function($) {
-
-	var	$window = $(window),
-		$body = $('body'),
-		$wrapper = $('#wrapper');
-
-	// Breakpoints.
-		breakpoints({
-			xlarge:  [ '1281px',  '1680px' ],
-			large:   [ '981px',   '1280px' ],
-			medium:  [ '737px',   '980px'  ],
-			small:   [ '481px',   '736px'  ],
-			xsmall:  [ null,      '480px'  ]
-		});
-
-	// Hack: Enable IE workarounds.
-		if (browser.name == 'ie')
-			$body.addClass('ie');
-
-	// Touch?
-		if (browser.mobile)
-			$body.addClass('touch');
-
-	// Transitions supported?
-		if (browser.canUse('transition')) {
-
-			// Play initial animations on page load.
-				$window.on('load', function() {
-					window.setTimeout(function() {
-						$body.removeClass('is-preload');
-					}, 100);
-				});
-
-			// Prevent transitions/animations on resize.
-				var resizeTimeout;
-
-				$window.on('resize', function() {
-
-					window.clearTimeout(resizeTimeout);
-
-					$body.addClass('is-resizing');
-
-					resizeTimeout = window.setTimeout(function() {
-						$body.removeClass('is-resizing');
-					}, 100);
-
-				});
-
-		}
-
-	// Scroll back to top.
-		$window.scrollTop(0);
-
-	// Panels.
-		var $panels = $('.panel');
-
-		$panels.each(function() {
-
-			var $this = $(this),
-				$toggles = $('[href="#' + $this.attr('id') + '"]'),
-				$closer = $('<div class="closer" />').appendTo($this);
-
-			// Closer.
-				$closer
-					.on('click', function(event) {
-						$this.trigger('---hide');
-					});
-
-			// Events.
-				$this
-					.on('click', function(event) {
-						event.stopPropagation();
-					})
-					.on('---toggle', function() {
-
-						if ($this.hasClass('active'))
-							$this.triggerHandler('---hide');
-						else
-							$this.triggerHandler('---show');
-
-					})
-					.on('---show', function() {
-
-						// Hide other content.
-							if ($body.hasClass('content-active'))
-								$panels.trigger('---hide');
-
-						// Activate content, toggles.
-							$this.addClass('active');
-							$toggles.addClass('active');
-
-						// Activate body.
-							$body.addClass('content-active');
-
-					})
-					.on('---hide', function() {
-
-						// Deactivate content, toggles.
-							$this.removeClass('active');
-							$toggles.removeClass('active');
-
-						// Deactivate body.
-							$body.removeClass('content-active');
-
-					});
-
-			// Toggles.
-				$toggles
-					.removeAttr('href')
-					.css('cursor', 'pointer')
-					.on('click', function(event) {
-
-						event.preventDefault();
-						event.stopPropagation();
-
-						$this.trigger('---toggle');
-
-					});
-
-		});
-
-		// Global events.
-			$body
-				.on('click', function(event) {
-
-					if ($body.hasClass('content-active')) {
-
-						event.preventDefault();
-						event.stopPropagation();
-
-						$panels.trigger('---hide');
-
-					}
-
-				});
-
-			$window
-				.on('keyup', function(event) {
-
-					if (event.keyCode == 27
-					&&	$body.hasClass('content-active')) {
-
-						event.preventDefault();
-						event.stopPropagation();
-
-						$panels.trigger('---hide');
-
-					}
-
-				});
-
-	// Header.
-		var $header = $('#header');
-
-		// Links.
-			$header.find('a').each(function() {
-
-				var $this = $(this),
-					href = $this.attr('href');
-
-				// Internal link? Skip.
-					if (!href
-					||	href.charAt(0) == '#')
-						return;
-
-				// Redirect on click.
-					$this
-						.removeAttr('href')
-						.css('cursor', 'pointer')
-						.on('click', function(event) {
-
-							event.preventDefault();
-							event.stopPropagation();
-
-							window.location.href = href;
-
-						});
-
-			});
-
-	// Footer.
-		var $footer = $('#footer');
-
-		// Copyright.
-		// This basically just moves the copyright line to the end of the *last* sibling of its current parent
-		// when the "medium" breakpoint activates, and moves it back when it deactivates.
-			$footer.find('.copyright').each(function() {
-
-				var $this = $(this),
-					$parent = $this.parent(),
-					$lastParent = $parent.parent().children().last();
-
-				breakpoints.on('<=medium', function() {
-					$this.appendTo($lastParent);
-				});
-
-				breakpoints.on('>medium', function() {
-					$this.appendTo($parent);
-				});
-
-			});
-
-	// Main.
-		var $main = $('#main');
-
-		// Thumbs.
-			$main.children('.thumb').each(function() {
-
-				var	$this = $(this),
-					$image = $this.find('.image'), $image_img = $image.children('img'),
-					x;
-
-				// No image? Bail.
-					if ($image.length == 0)
-						return;
-
-				// Image.
-				// This sets the background of the "image" <span> to the image pointed to by its child
-				// <img> (which is then hidden). Gives us way more flexibility.
-
-					// Set background.
-						$image.css('background-image', 'url(' + $image_img.attr('src') + ')');
-
-					// Set background position.
-						if (x = $image_img.data('position'))
-							$image.css('background-position', x);
-
-					// Hide original img.
-						$image_img.hide();
-
-			});
-
-		// Poptrox.
-			$main.poptrox({
-				baseZIndex: 20000,
-				caption: function($a) {
-
-					var s = '';
-
-					$a.nextAll().each(function() {
-						s += this.outerHTML;
-					});
-
-					return s;
-
-				},
-				fadeSpeed: 300,
-				onPopupClose: function() { $body.removeClass('modal-active'); },
-				onPopupOpen: function() { $body.addClass('modal-active'); },
-				overlayOpacity: 0,
-				popupCloserText: '',
-				popupHeight: 150,
-				popupLoaderText: '',
-				popupSpeed: 300,
-				popupWidth: 150,
-				selector: '.thumb > a.image',
-				usePopupCaption: true,
-				usePopupCloser: true,
-				usePopupDefaultStyling: false,
-				usePopupForceClose: true,
-				usePopupLoader: true,
-				usePopupNav: true,
-				windowMargin: 50
-			});
-
-			// Hack: Set margins to 0 when 'xsmall' activates.
-				breakpoints.on('<=xsmall', function() {
-					$main[0]._poptrox.windowMargin = 0;
-				});
-
-				breakpoints.on('>xsmall', function() {
-					$main[0]._poptrox.windowMargin = 50;
-				});
-
-})(jQuery);
+(function() {
+  "use strict";
+
+  /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
+
+  /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
+
+  /**
+   * Easy on scroll event listener 
+   */
+  const onscroll = (el, listener) => {
+    el.addEventListener('scroll', listener)
+  }
+
+  /**
+   * Scrolls to an element with header offset
+   */
+  const scrollto = (el) => {
+    let header = select('#header')
+    let offset = header.offsetHeight
+
+    let elementPos = select(el).offsetTop
+    window.scrollTo({
+      top: elementPos - offset,
+      behavior: 'smooth'
+    })
+  }
+
+  /**
+   * Back to top button
+   */
+  let backtotop = select('.back-to-top')
+  if (backtotop) {
+    const toggleBacktotop = () => {
+      if (window.scrollY > 100) {
+        backtotop.classList.add('active')
+      } else {
+        backtotop.classList.remove('active')
+      }
+    }
+    window.addEventListener('load', toggleBacktotop)
+    onscroll(document, toggleBacktotop)
+  }
+
+  /**
+   * Mobile nav toggle
+   */
+  on('click', '.mobile-nav-toggle', function(e) {
+    select('#navbar').classList.toggle('navbar-mobile')
+    this.classList.toggle('bi-list')
+    this.classList.toggle('bi-x')
+  })
+
+  /**
+   * Mobile nav dropdowns activate
+   */
+  on('click', '.navbar .dropdown > a', function(e) {
+    if (select('#navbar').classList.contains('navbar-mobile')) {
+      e.preventDefault()
+      this.nextElementSibling.classList.toggle('dropdown-active')
+    }
+  }, true)
+
+  /**
+   * Scrool with ofset on links with a class name .scrollto
+   */
+  on('click', '.scrollto', function(e) {
+    if (select(this.hash)) {
+      e.preventDefault()
+
+      let navbar = select('#navbar')
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile')
+        let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
+      }
+      scrollto(this.hash)
+    }
+  }, true)
+
+  /**
+   * Scroll with ofset on page load with hash links in the url
+   */
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      if (select(window.location.hash)) {
+        scrollto(window.location.hash)
+      }
+    }
+  });
+
+  /**
+   * Preloader
+   */
+  let preloader = select('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove()
+    });
+  }
+
+  /**
+   * Porfolio isotope and filter
+   */
+  window.addEventListener('load', () => {
+    let portfolioContainer = select('.portfolio-container');
+    if (portfolioContainer) {
+      let portfolioIsotope = new Isotope(portfolioContainer, {
+        itemSelector: '.portfolio-item'
+      });
+
+      let portfolioFilters = select('#portfolio-flters li', true);
+
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        portfolioIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        portfolioIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+      }, true);
+    }
+
+  });
+
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
+
+  /**
+   * Initiate portfolio details lightbox 
+   */
+  const portfolioDetailsLightbox = GLightbox({
+    selector: '.portfolio-details-lightbox',
+    width: '90%',
+    height: '90vh'
+  });
+
+  /**
+   * Portfolio details slider
+   */
+  new Swiper('.portfolio-details-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
+   * Skills animation
+   */
+  let skilsContent = select('.skills-content');
+  if (skilsContent) {
+    new Waypoint({
+      element: skilsContent,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = select('.progress .progress-bar', true);
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%'
+        });
+      }
+    })
+  }
+
+  /**
+   * Testimonials slider
+   */
+  new Swiper('.testimonials-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
+   * Animation on scroll
+   */
+  window.addEventListener('load', () => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+      mirror: false
+    });
+  });
+
+  /**
+   * Initiate Pure Counter 
+   */
+  new PureCounter();
+
+})()
