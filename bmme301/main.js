@@ -41,6 +41,19 @@ function init() {
     antialias: true,
   });
 
+  // Prevent unwanted touch behaviors
+  canvas.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+  
+  canvas.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+  
+  canvas.addEventListener('touchend', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+
   // Set canvas size with higher resolution
   function resizeCanvas() {
     const container = canvas.parentElement;
@@ -49,11 +62,11 @@ function init() {
 
     // Set display size (css pixels)
     canvas.style.width = `${rect.width}px`;
-    canvas.style.height = `${rect.height}px`;
+    canvas.style.height = `${rect.width * 0.5}px`; // Maintain 2:1 aspect ratio
 
     // Set actual size in memory (scaled for device pixel ratio)
     canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+    canvas.height = (rect.width * 0.5) * dpr;
 
     // Scale context to match device pixel ratio
     ctx.scale(dpr, dpr);

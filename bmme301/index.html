@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>BMME 301 Eye Light Simulation</title>
         <style>
             body {
@@ -204,6 +204,7 @@
             @media (max-width: 767px) {
                 body {
                     padding: 5px;
+                    touch-action: none; /* Prevent default touch behaviors */
                 }
                 #container {
                     flex-direction: column;
@@ -213,11 +214,13 @@
                     order: -1;
                     margin-bottom: 10px;
                     padding: 10px;
+                    touch-action: none; /* Prevent default touch behaviors */
                 }
                 #simulation {
                     width: 100%;
-                    height: calc(50vw - 20px); /* Half of viewport width minus padding */
+                    height: calc(50vw - 20px);
                     min-height: 0;
+                    touch-action: none; /* Prevent default touch behaviors */
                 }
                 #controls {
                     max-height: calc(100vh - 50vw - 100px); /* Remaining space after simulation */
