@@ -10,6 +10,9 @@
                 padding: 10px;
                 font-family: Arial, sans-serif;
                 background-color: #f0f0f0;
+                overflow-x: hidden; /* Prevent horizontal scrolling */
+                width: 100%;
+                box-sizing: border-box;
             }
             #container {
                 display: flex;
@@ -17,6 +20,8 @@
                 max-width: 1200px;
                 margin: 0 auto;
                 gap: 20px;
+                width: 100%;
+                box-sizing: border-box;
             }
             #controls {
                 width: 100%;
@@ -26,6 +31,7 @@
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 max-height: 80vh;
                 overflow-y: auto;
+                box-sizing: border-box;
             }
             #simulation-container {
                 width: 100%;
@@ -33,12 +39,14 @@
                 border-radius: 8px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 padding: 15px;
+                box-sizing: border-box;
             }
             #simulation {
                 width: 100%;
                 height: 300px;
                 border: 1px solid #ddd;
                 margin-bottom: 15px;
+                box-sizing: border-box;
             }
             #legend {
                 display: flex;
@@ -194,28 +202,37 @@
             }
 
             @media (max-width: 767px) {
+                body {
+                    padding: 5px;
+                }
                 #container {
                     flex-direction: column;
+                    gap: 10px;
                 }
                 #simulation-container {
-                    order: -1; /* Move simulation to top */
-                    margin-bottom: 20px;
+                    order: -1;
+                    margin-bottom: 10px;
+                    padding: 10px;
                 }
                 #simulation {
-                    height: 300px;
+                    width: 100%;
+                    aspect-ratio: 2 / 1; /* Make it twice as wide as it is tall */
+                    height: auto; /* Let the aspect ratio determine the height */
+                    min-height: 0; /* Remove fixed minimum height */
                 }
                 #controls {
-                    max-height: 50vh;
+                    max-height: 50vh; /* Give more space to controls */
                     overflow-y: auto;
+                    -webkit-overflow-scrolling: touch;
                 }
                 .control-section {
-                    margin-bottom: 10px;
+                    margin-bottom: 8px;
                 }
                 .control-section-header {
-                    padding: 8px 12px;
+                    padding: 8px 10px;
                 }
                 .control-section-content {
-                    padding: 10px;
+                    padding: 8px;
                 }
                 .legend-item {
                     font-size: 0.8em;
