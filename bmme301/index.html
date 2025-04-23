@@ -216,12 +216,11 @@
                 }
                 #simulation {
                     width: 100%;
-                    aspect-ratio: 2 / 1; /* Make it twice as wide as it is tall */
-                    height: auto; /* Let the aspect ratio determine the height */
-                    min-height: 0; /* Remove fixed minimum height */
+                    height: calc(50vw - 20px); /* Half of viewport width minus padding */
+                    min-height: 0;
                 }
                 #controls {
-                    max-height: 50vh; /* Give more space to controls */
+                    max-height: calc(100vh - 50vw - 100px); /* Remaining space after simulation */
                     overflow-y: auto;
                     -webkit-overflow-scrolling: touch;
                 }
