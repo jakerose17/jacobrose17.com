@@ -1,0 +1,474 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BMME 301 Eye Light Simulation</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 10px;
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+            }
+            #container {
+                display: flex;
+                flex-direction: column;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 20px;
+            }
+            #controls {
+                width: 100%;
+                padding: 15px;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            #simulation-container {
+                width: 100%;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding: 15px;
+            }
+            #simulation {
+                width: 100%;
+                height: 300px;
+                border: 1px solid #ddd;
+                margin-bottom: 15px;
+            }
+            #legend {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px;
+                background: #f8f8f8;
+                border-radius: 4px;
+            }
+            .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 0.9em;
+            }
+            .legend-color {
+                width: 15px;
+                height: 15px;
+                border-radius: 3px;
+            }
+            .control-group {
+                margin-bottom: 12px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #333;
+                font-size: 0.9em;
+            }
+            input[type="range"] {
+                width: 100%;
+                margin: 5px 0;
+                -webkit-appearance: none;
+                height: 6px;
+                border-radius: 4px;
+                background: #ddd;
+                outline: none;
+            }
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: #4caf50;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            input[type="range"]::-webkit-slider-thumb:hover {
+                background: #45a049;
+            }
+            h1 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+                font-size: 1.5em;
+            }
+            h2 {
+                color: #444;
+                margin-top: 0;
+                font-size: 1.2em;
+            }
+            span {
+                display: inline-block;
+                min-width: 35px;
+                text-align: right;
+                color: #666;
+                font-size: 0.9em;
+            }
+            .control-section {
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                overflow: hidden;
+            }
+            .control-section-header {
+                padding: 10px 15px;
+                background: #f5f5f5;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-weight: bold;
+                color: #333;
+            }
+            .control-section-header:hover {
+                background: #eee;
+            }
+            .control-section-content {
+                padding: 15px;
+                display: none;
+            }
+            .control-section.active .control-section-content {
+                display: block;
+            }
+            .control-section-header::after {
+                content: "▼";
+                font-size: 0.8em;
+            }
+            .control-section.active .control-section-header::after {
+                content: "▲";
+            }
+            .focus-score {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                padding: 10px;
+                background: #f8f8f8;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+            .focus-score #focusScoreValue {
+                color: #4caf50;
+            }
+
+            @media (min-width: 768px) {
+                #container {
+                    flex-direction: row;
+                }
+                #controls {
+                    width: 300px;
+                    flex-shrink: 0;
+                }
+                #simulation {
+                    height: 500px;
+                }
+                h1 {
+                    font-size: 2em;
+                }
+                h2 {
+                    font-size: 1.5em;
+                }
+                .legend-item {
+                    font-size: 1em;
+                }
+                .legend-color {
+                    width: 20px;
+                    height: 20px;
+                }
+                label {
+                    font-size: 1em;
+                }
+                input[type="range"] {
+                    height: 8px;
+                }
+                input[type="range"]::-webkit-slider-thumb {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                #container {
+                    flex-direction: column;
+                }
+                #simulation-container {
+                    order: -1; /* Move simulation to top */
+                    margin-bottom: 20px;
+                }
+                #simulation {
+                    height: 300px;
+                }
+                #controls {
+                    max-height: 50vh;
+                    overflow-y: auto;
+                }
+                .control-section {
+                    margin-bottom: 10px;
+                }
+                .control-section-header {
+                    padding: 8px 12px;
+                }
+                .control-section-content {
+                    padding: 10px;
+                }
+                .legend-item {
+                    font-size: 0.8em;
+                }
+                .legend-color {
+                    width: 12px;
+                    height: 12px;
+                }
+                label {
+                    font-size: 0.9em;
+                }
+                input[type="range"] {
+                    height: 6px;
+                }
+                input[type="range"]::-webkit-slider-thumb {
+                    width: 16px;
+                    height: 16px;
+                }
+                .focus-score {
+                    font-size: 1em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>BMME 301 Eye Light Simulation</h1>
+        <div id="container">
+            <div id="controls">
+                <h2>Simulation Controls</h2>
+
+                <div class="control-section active">
+                    <div class="control-section-header">Eye Dimensions</div>
+                    <div class="control-section-content">
+                        <div class="control-group">
+                            <label for="eyeSize">Overall Eye Size (mm):</label>
+                            <input
+                                type="range"
+                                id="eyeSize"
+                                min="25"
+                                max="50"
+                                step="0.1"
+                                value="35"
+                            />
+                            <span id="eyeSizeValue">35</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="corneaRadius"
+                                >Cornea Radius (mm):</label
+                            >
+                            <input
+                                type="range"
+                                id="corneaRadius"
+                                min="5"
+                                max="10"
+                                step="0.1"
+                                value="8"
+                            />
+                            <span id="corneaRadiusValue">8</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="pupilSize">Pupil Size (mm):</label>
+                            <input
+                                type="range"
+                                id="pupilSize"
+                                min="2"
+                                max="8"
+                                step="0.1"
+                                value="4"
+                            />
+                            <span id="pupilSizeValue">4</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="lensHeight">Lens Height (mm):</label>
+                            <input
+                                type="range"
+                                id="lensHeight"
+                                min="4"
+                                max="6"
+                                step="0.1"
+                                value="4"
+                            />
+                            <span id="lensHeightValue">4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-section active">
+                    <div class="control-section-header">Refractive Indices</div>
+                    <div class="control-section-content">
+                        <div class="control-group">
+                            <label for="airIndex">Air Refractive Index:</label>
+                            <input
+                                type="range"
+                                id="airIndex"
+                                min="1"
+                                max="2"
+                                step="0.01"
+                                value="1.00"
+                            />
+                            <span id="airIndexValue">1.00</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="corneaIndex"
+                                >Cornea Refractive Index:</label
+                            >
+                            <input
+                                type="range"
+                                id="corneaIndex"
+                                min="1"
+                                max="2"
+                                step="0.01"
+                                value="1.38"
+                            />
+                            <span id="corneaIndexValue">1.38</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="aqueousIndex"
+                                >Aqueous Humor Refractive Index:</label
+                            >
+                            <input
+                                type="range"
+                                id="aqueousIndex"
+                                min="1.2"
+                                max="1.6"
+                                step="0.01"
+                                value="1.34"
+                            />
+                            <span id="aqueousIndexValue">1.336</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="lensIndex"
+                                >Lens Refractive Index:</label
+                            >
+                            <input
+                                type="range"
+                                id="lensIndex"
+                                min="1.3"
+                                max="1.5"
+                                step="0.01"
+                                value="1.42"
+                            />
+                            <span id="lensIndexValue">1.42</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="vitreousIndex"
+                                >Vitreous Humor Refractive Index:</label
+                            >
+                            <input
+                                type="range"
+                                id="vitreousIndex"
+                                min="1.33"
+                                max="1.34"
+                                step="0.001"
+                                value="1.336"
+                            />
+                            <span id="vitreousIndexValue">1.336</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-section active">
+                    <div class="control-section-header">Light Source</div>
+                    <div class="control-section-content">
+                        <div class="control-group">
+                            <label for="lightSourceDistance"
+                                >Light Source Distance (mm):</label
+                            >
+                            <input
+                                type="range"
+                                id="lightSourceDistance"
+                                min="100"
+                                max="1000"
+                                step="10"
+                                value="500"
+                            />
+                            <span id="lightSourceDistanceValue">500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="simulation-container">
+                <canvas id="simulation"></canvas>
+                <div id="focus-score" class="focus-score">
+                    <span>Focus Score: </span>
+                    <span id="focusScoreValue">0</span>
+                </div>
+                <div id="legend">
+                    <div class="legend-item">
+                        <div
+                            class="legend-color"
+                            style="background: rgba(255, 255, 255, 0.8)"
+                        ></div>
+                        <span>Cornea</span>
+                    </div>
+                    <div class="legend-item">
+                        <div
+                            class="legend-color"
+                            style="background: rgba(200, 230, 255, 0.3)"
+                        ></div>
+                        <span>Anterior Chamber</span>
+                    </div>
+                    <div class="legend-item">
+                        <div
+                            class="legend-color"
+                            style="background: #000"
+                        ></div>
+                        <span>Pupil</span>
+                    </div>
+                    <div class="legend-item">
+                        <div
+                            class="legend-color"
+                            style="background: #4a4a4a"
+                        ></div>
+                        <span>Iris</span>
+                    </div>
+                    <div class="legend-item">
+                        <div
+                            class="legend-color"
+                            style="background: rgba(255, 204, 153, 0.6)"
+                        ></div>
+                        <span>Lens</span>
+                    </div>
+                    <div class="legend-item">
+                        <div
+                            class="legend-color"
+                            style="background: rgba(200, 230, 255, 0.2)"
+                        ></div>
+                        <span>Vitreous Body</span>
+                    </div>
+                    <div class="legend-item">
+                        <div
+                            class="legend-color"
+                            style="background: #ff0000"
+                        ></div>
+                        <span>Retina</span>
+                    </div>
+                    <div class="legend-item">
+                        <div
+                            class="legend-color"
+                            style="background: #ffff00"
+                        ></div>
+                        <span>Light Ray</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
